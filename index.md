@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+Hey! I'm Vijay Vanapalli! 
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Exploring Computer Vision projects and papers in this blog!
