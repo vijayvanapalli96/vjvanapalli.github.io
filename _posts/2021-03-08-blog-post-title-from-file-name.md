@@ -133,7 +133,7 @@ From our observations, we can conclude that when it comes to Hand Written Charac
 
 We do need to look at the resources expended to obtain these results. 
 
-According to [https://lifestyle.livemint.com/news/big-story/ai-carbon-footprint-openai-chatgpt-water-google-microsoft-111697802189371.html#:~:text=The%20estimated%20energy%20consumption%20of%20a%20ChatGPT%2D4%20query%20is,and%20number%20of%20tokens%20processed.](https://shorturl.at/vwJP4)
+According to (https://shorturl.at/vwJP4)
 
 The estimated energy consumption of a ChatGPT-4 query is 0.001-0.01 kWh (3.6-36 kJ), depending on the model size and number of tokens processed. Whereas the size of this OCR model would be much smaller and more efficient to run on lower-end systems thus making it more accessible for applications. 
 
