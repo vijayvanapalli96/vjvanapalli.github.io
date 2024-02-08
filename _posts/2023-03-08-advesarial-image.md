@@ -9,6 +9,52 @@ Here are the various adversarial attacks we will be trying out on the ResNet50 m
 3. Average 2 images together
 4. Fast Gradient Sign Method
 
+Below is the code used to generate an output label number after converting the image to a tensor and feeding it as an input to the model, which I look up manually in ImageNet Labels :
+
+```
+from PIL import Image
+from torchvision import transforms
+import torchvision.models as models
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+model = models.resnet50(pretrained=True)
+model.eval()
+input_image = "/content/input_image.png"  # Provide the path to your input image
+image = Image.open(input_image).convert("RGB")  # Convert image to RGB format
+preprocess = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+])
+image = preprocess(image).unsqueeze(0)
+image.requires_grad = True
+output = model(image)
+predicted_label = torch.argmax(output, 1).item()
+true_label = torch.tensor([282])  # The true label for a dog class (282 for ResNet50)
+loss = torch.nn.CrossEntropyLoss()(output, true_label)
+model.zero_grad()
+loss.backward()
+data_grad = image.grad.data
+epsilon = 0.125  # Adjust this value to control the strength of the attack
+perturbed_image = fgsm_attack(image, epsilon, data_grad)
+output = model(perturbed_image)
+new_predicted_label = torch.argmax(output, 1).item()
+image_np = np.transpose(image.squeeze().detach().numpy(), (1, 2, 0))
+perturbed_image_np = np.transpose(perturbed_image.squeeze().detach().numpy(), (1, 2, 0))
+show_image_label(image_np, f"Original Label: {predicted_label}")
+show_image_label(perturbed_image_np, f"Adversarial Label: {new_predicted_label}")
+```
+
+Below is the function used to show image: 
+```
+def show_image_label(image, label):
+    plt.imshow(image)
+    plt.axis('off')
+    plt.title(label)
+    plt.show()
+```
+
 ## Image Compression 
 Here I've used JPEG compression in the OpenCV library, the code is as follows: 
 ```
