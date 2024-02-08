@@ -6,11 +6,9 @@ Here are the various adversarial attacks we will be trying out on the ResNet50 m
 
 1. Image Compression
 2. Blur
-3. Tilting
-4. Aging the Image
+3. Aging the Image
 5. Average 2 images together
 6. Fast Gradient Sign Method
-7. Adversarial Patches
 
 ## Image Compression 
 Here I've used JPEG compression in the OpenCV library, the code is as follows: 
@@ -48,15 +46,21 @@ compress_image(input_file_path, output_file_path, quality=100)
 I don't observe any immediate changes in class, it remains the same so I explore more extreme methods of achieving image compression, disregarding the quality of the image. 
 
 Following is the output label obtained on an extremely compressed image. Comparing the sizes of the image, the original was 23 KB and the final is 3 KB
+
 <img width="224" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/39686ce1-f4d2-49d0-a3d4-68b40dd17622">
+
+
 Here the label corresponds to Kuvasz which is another pale white dog breed
 
 
 
 ## Blur
-Here I've used Blur on the image, the code is as follows:
+With a strong blur applied through photo editing, we see the following label occur 
 
-The output is as follows:
+<img width="245" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4c2056a6-fa6b-4476-8cf2-41cf42c406d8">
+
+The output label is a Hussar monkey which is far removed from the object of the current photo which is a puppy.
+To our human perception, despite the blur, we can still tell that the image being displayed is that of a puppy.
 
 
 ## Aging the image using a filter
