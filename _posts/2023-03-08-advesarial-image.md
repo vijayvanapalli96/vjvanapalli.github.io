@@ -34,6 +34,21 @@ Here I've averaged two unrelated images and averaged them out over a few ratios
 
 ## Fast Gradient Sign Method
 Here I've experimented with Gradient Sign methods to target another class in the ImageNet labels to try and alter pixels within the image to get the closest to the false class 
+Source: https://medium.com/@madadihosyn99/generating-adversarial-examples-with-fast-gradient-sign-method-fgsm-in-pytorch-a-step-by-step-a423537628dd
+```
+def fgsm_attack(image, epsilon, data_grad):
+    # Collect the element-wise sign of the data gradient
+    sign_data_grad = data_grad.sign()
+    
+    # Create the perturbed image by adjusting each pixel of the input image
+    perturbed_image = image + epsilon * sign_data_grad
+    
+    # Clip the perturbed image values to ensure they stay within the valid range
+    perturbed_image = torch.clamp(perturbed_image, 0, 1)
+    
+    return perturbed_image
+```
+
 
 
 
