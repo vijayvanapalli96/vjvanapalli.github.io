@@ -134,7 +134,6 @@ Below is the image ratio of 0.5
 
 
 Keeping an equal ratio, provides the label 'Oxygen mask', which shows how erratically the feature map being generated from these images affects the final label
-<img width="217" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/a07dfb8e-fabf-4b99-aa62-e26005aa6e1e">
 
 
 To average the image with a more anatomically similar object, I use a bear facing the camera in a similar orientation to see when the label shifts.
