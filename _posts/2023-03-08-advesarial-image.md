@@ -194,7 +194,7 @@ The following is the desired brown bear label classification
 
 
 
-## Fast Gradient Sign MethodThe 
+## Fast Gradient Sign Method
 Here I've experimented with Gradient Sign methods to target another class in the ImageNet labels to try and alter pixels within the image to get the closest to the false class 
 Source: https://medium.com/@madadihosyn99/generating-adversarial-examples-with-fast-gradient-sign-method-fgsm-in-pytorch-a-step-by-step-a423537628dd
 
