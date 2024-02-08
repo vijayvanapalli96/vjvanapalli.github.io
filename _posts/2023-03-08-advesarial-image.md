@@ -14,6 +14,43 @@ Here are the various adversarial attacks we will be trying out on the ResNet50 m
 
 ## Image Compression 
 Here I've used JPEG compression in the OpenCV library, the code is as follows: 
+```
+from PIL import Image
+
+def compress_image(input_path, output_path, quality=85):
+    """
+    Compress a JPEG image.
+
+    Parameters:
+    - input_path (str): Path to the input image.
+    - output_path (str): Path to save the compressed image.
+    - quality (int): Quality level for compression (0 to 100).
+
+    Returns:
+    - None
+    """
+    try:
+        # Open the image
+        img = Image.open(input_path)
+
+        # Save the compressed image with the specified quality
+        img.save(output_path, 'JPEG', quality=quality, optimize=True)
+
+        print(f"Compression completed successfully. Image saved at {output_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Example usage
+input_file_path = "puppy.jpg"
+output_file_path = "output_compressed_image.jpg"
+compress_image(input_file_path, output_file_path, quality=100)
+```
+I don't observe any immediate changes in class, it remains the same so I explore more extreme methods of achieving image compression, disregarding the quality of the image. 
+
+Following is the output label obtained on an extremely compressed image. Comparing the sizes of the image, the original was 23 KB and the final is 3 KB
+<img width="224" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/39686ce1-f4d2-49d0-a3d4-68b40dd17622">
+Here the label corresponds to Kuvasz which is another pale white dog breed
+
 
 
 ## Blur
@@ -55,7 +92,7 @@ We can observe the following output:
 
 Looking at the labels in Imagenet, we see that the original is a golden retriever (207)
 Whereas
-the new image is a Komodo dragon which is drastically different (228)
+the new image is a Komondor which is a  drastically different dog breed (228)
 
 
 
