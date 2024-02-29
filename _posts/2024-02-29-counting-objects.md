@@ -4,7 +4,9 @@
 ## Introduction 
 
 I'm fascinated by videos in which tracking and counting can play a useful role in real life. For instance tracking a puppy through a dog cam to track where it's going.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Dj5o17kMBDU" frameborder="0" allowfullscreen></iframe>
+
+[![Click to watch the video](http://img.youtube.com/vi/Dj5o17kMBDU/0.jpg)](https://youtu.be/Dj5o17kMBDU)
+
 
 Or time lapse videos where you can see how objects or people go through different states
 [Insert timelapse video]
