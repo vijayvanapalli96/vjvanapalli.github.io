@@ -12,7 +12,8 @@ Or time lapse videos where you can see how objects or people go through differen
 
 
 I'm also interested in medical applications,  usually the most direct approaches of using models on images are blood cell count, identifying foreign objects in sample cultures and so on
-[Insert cell images]
+[![Click to watch the video](https://img.youtube.com/vi/RxHTaTmPlwQ/0.jpg)](https://www.youtube.com/watch?v=RxHTaTmPlwQ)
+
 
 ## Method
 
