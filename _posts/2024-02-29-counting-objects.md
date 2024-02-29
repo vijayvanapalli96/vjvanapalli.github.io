@@ -16,8 +16,27 @@ I'm also interested in medical applications,  usually the most direct approaches
 
 [![Click to watch the video](https://img.youtube.com/vi/RxHTaTmPlwQ/0.jpg)](https://www.youtube.com/watch?v=RxHTaTmPlwQ)
 
+In this blog I will be focusing on methods I've used to try to isolate and count the number of cells in an image at a time, while also occasionally testing out YOLO on regular home videos to see how the object detection and tracking translates to microscopic videos.
 
 ## Method
+
+Examining how Yolo works on regular videos, we see that it's quite good at detecting dogs, cats, furniture, except for when the dog comes really close to the camera. The change in perspective and the focus on partial face confuses the YOLOv8 model. 
+
+[![Click to watch the video](https://img.youtube.com/vi/fHGpIKpM9c4/0.jpg)](https://www.youtube.com/watch?v=fHGpIKpM9c4)
+
+Similarly using the YOLOv8 model on tracking the growth of a plant was an interesting idea. However, the model misclassifies the plant as a bird but keeps a reasonably tight bounding box on the object of interest. 
+Initially I aimed to take a measure of the width of the bounding box and see how that grows  along with the duration of the video. Similarily, the height could also be plotted down. 
+
+
+[![Click to watch the video](https://img.youtube.com/vi/iS-svnWWQmo/0.jpg)](https://www.youtube.com/watch?v=iS-svnWWQmo)
+
+However the misclassification is way too inconsistent, also there is a brief period where the model refuses to find the plant in question, so we cant exactly take measurements.
+Regardless below are plots of the varying width and height during the short durations of the growth stages displayed. 
+
+
+
+On the other hand for a close up of red blood cell video, I first attempted to count the number of blobs on screen, by using OpenCVs simple blob detector. The result is as follows: 
+[![Click to watch the video](https://img.youtube.com/vi/RrlAazsjsIE/0.jpg)](https://www.youtube.com/shorts/RrlAazsjsIE)
 
 
 ## Results
