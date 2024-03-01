@@ -69,6 +69,11 @@ A quick overview or the reason the following filters are used is explained as fo
 
    [![Click to watch on YouTube](https://img.youtube.com/vi/4wuzKxqZRDs/0.jpg)](https://youtube.com/shorts/4wuzKxqZRDs?feature=share)
 
+   The simpleBlobDetector is more consistent in its output especially when the camera is more still
+   
+   [![Click to watch on YouTube](https://img.youtube.com/vi/RrlAazsjsIE/0.jpg)](https://youtube.com/shorts/RrlAazsjsIE)
+
+
 
    
 ## Results
