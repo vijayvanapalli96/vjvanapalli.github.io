@@ -36,9 +36,41 @@ Regardless below are plots of the varying width and height during the short dura
 
 
 On the other hand for a close up of red blood cell video, I first attempted to count the number of blobs on screen, by using OpenCVs simple blob detector. The result is as follows: 
+
+
 [![Click to watch the video](https://img.youtube.com/vi/RrlAazsjsIE/0.jpg)](https://www.youtube.com/shorts/RrlAazsjsIE)
 
+Here in the top left corner, you can see a count of the blobs that I've labeled conveniently as red blood cells, but in reality, any blob that would satisfy the area requirement would have added to the count. 
 
+This led to an interesting dive of blob detection algorithms. 
+A quick overview or the reason the following filters are used is explained as follows, along with demos of the videos using those filters. 
+
+1. LoG Filter (Laplacian of Gaussian)
+  Purpose: Detects edges and fine details in the image by applying the Laplacian Operater followed by Gaussian smoothing
+
+[![Click to watch on YouTube](https://img.youtube.com/vi/ux8EbZzRGUw/0.jpg)](https://youtube.com/shorts/ux8EbZzRGUw)
+
+
+3. DoG Filter (Difference of Gaussian)
+   Purpose: Enhance the perception of edges and details at different scales by subtracting one blurred version of the image from another to create a bandpass filter
+
+   [![Click to watch on YouTube](https://img.youtube.com/vi/GdNdzePEB18/0.jpg)](https://youtube.com/shorts/GdNdzePEB18)
+
+    
+
+   
+5. DoH Filter (Determinant of the Hessian)
+    Purpose: Detect blobs or regions with significant intensity variations by computing the Hessian matrix and calculates the Determinant
+
+   [![Click to watch on YouTube](https://img.youtube.com/vi/x1C6DObc73w/0.jpg)](https://youtube.com/shorts/x1C6DObc73w?feature=share)
+
+7. Blob Detection (SimpleBlobDetector)
+   Purpose: Identifies and locates regions of interest using the SimpleBlobDetector in OpenCV
+
+   [![Click to watch on YouTube](https://img.youtube.com/vi/4wuzKxqZRDs/0.jpg)](https://youtube.com/shorts/4wuzKxqZRDs?feature=share)
+
+
+   
 ## Results
 
 ## Analysis of Results 
