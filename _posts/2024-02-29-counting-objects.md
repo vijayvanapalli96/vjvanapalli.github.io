@@ -70,16 +70,21 @@ A quick overview or the reason the following filters are used is explained as fo
    [![Click to watch on YouTube](https://img.youtube.com/vi/4wuzKxqZRDs/0.jpg)](https://youtube.com/shorts/4wuzKxqZRDs?feature=share)
 
    The simpleBlobDetector is more consistent in its output especially when the camera is more still
-   
-   [![Click to watch on YouTube](https://img.youtube.com/vi/RrlAazsjsIE/0.jpg)](https://youtube.com/shorts/RrlAazsjsIE)
 
 
 
    
 ## Results
 
+Plotting the data obtained from the filters used above we obtain: 
+
+<img width="518" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/40d30026-99eb-4107-aad0-4480f1d40293">
+
+
 ## Analysis of Results 
 
+From the results above we can see it usually is just a toss between the DoG filters, as they are more consistent atleast with finding blobs. Another unexplored alternative would be to try out a tensorflow model, trained on detecting the actual blobs to see how this fairs against the Vision Algorithms deployed here. 
 
 ## Analysis of Vision Algorithms
-
+These Vision algorithms are quite fun to tweak with, as they allow you to narrow down the type of blob that you are searching for. If I wanted to target the larger white blood cells I would simply have to increase the size of the blob and zero in on the defects, however it is a nuanced parameter as red blood cells can also have large sizes, so it is not appropriate to just distinguish based on size. 
+Training a model to recognize the color, shape and collection of the blood cells would be a more long standing solution. 
