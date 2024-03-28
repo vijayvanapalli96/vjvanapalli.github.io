@@ -20,10 +20,12 @@ This post will mainly try to explore these changes through two methods:
 This process proved to be less computationally intensive.
 For the same video, I thresholded the image, and used cv2s findContour function to isolate the foreground object from the blank background. The contrasting colors and the high definition video allowed me to not account of any occlusion or noise. 
 The results can be seen below
+![output (4)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/800c4607-5cd2-4d78-93ab-893708316130)
+Similarily we can extend this way of measuring growth to other objects. 
+Crystallization is an interesting problem domain, while we cant measure the actual mass of the crystal we can atleast measure the rate of growth if given the duration for which the time lapse has occored as shown below 
 
-
-
-In both ac
+In the dandelion video the area change is quite significantly measured, and thus allows us to calculate growth rate.
+We can apply similar constraints 
 ## Analysis of Results 
 
 From the results above we can see it usually is just a toss between the DoG filters, as they are more consistent atleast with finding blobs. Another unexplored alternative would be to try out a tensorflow model, trained on detecting the actual blobs to see how this fairs against the Vision Algorithms deployed here. 
