@@ -1,22 +1,14 @@
 
-## Measuring Objects in Images and Videos 
+## Measuring Growth Rate in Objects
 
 ## Introduction 
 
-I'm fascinated by videos in which tracking and counting can play a useful role in real life. For instance tracking a puppy through a dog cam to track where it's going.
+In this blog post we will be exploring different methods to explore the growth of objects, or the changes that appear in them over time. 
 
-[![Click to watch the video](http://img.youtube.com/vi/Dj5o17kMBDU/0.jpg)](https://youtu.be/Dj5o17kMBDU)
+This post will mainly try to explore these changes through two methods:
 
-Or time lapse videos where you can see how objects or people go through different states
-
-[![Click to watch the video](https://img.youtube.com/vi/w77zPAtVTuI/0.jpg)](https://youtu.be/w77zPAtVTuI)
-
-
-I'm also interested in medical applications,  usually the most direct approaches of using models on images are blood cell count, identifying foreign objects in sample cultures and so on
-
-[![Click to watch the video](https://img.youtube.com/vi/RxHTaTmPlwQ/0.jpg)](https://www.youtube.com/watch?v=RxHTaTmPlwQ)
-
-In this blog I will be focusing on methods I've used to try to isolate and count the number of cells in an image at a time, while also occasionally testing out YOLO on regular home videos to see how the object detection and tracking translates to microscopic videos.
+1. Segment Anything
+2. Preprocessing each frame to highlight the objects on the video, and performing contour detection
 
 ## Method
 
