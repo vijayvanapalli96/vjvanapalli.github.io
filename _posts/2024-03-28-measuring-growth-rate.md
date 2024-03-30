@@ -61,6 +61,14 @@ I tried to extend this analysis to other types of flowers as well :
 ![ezgif-3-e762fdcb63](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/d81ce803-01a6-4a45-9f6b-8314ba378fab)<img width="338" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/6f88c86f-c599-42c8-af57-a080f49852e0">
 
 
+![output (8)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3a721c9e-046a-4f9a-98a4-93ae09232cc4)<img width="314" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/f1c00258-c2e3-4c9a-8c5f-893420fdd833">
+
+
+<img width="332" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9b62131b-9e61-4473-bc9e-2391db6759ed">
+<img width="332" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9ec4c518-868a-4149-835d-5ca3f56e03b6">
+
+
+
 
 ## Analysis of Vision Algorithms
 These Vision algorithms are quite fun to tweak with, as they allow you to narrow down the type of blob that you are searching for. If I wanted to target the larger white blood cells I would simply have to increase the size of the blob and zero in on the defects, however it is a nuanced parameter as red blood cells can also have large sizes, so it is not appropriate to just distinguish based on size. 
