@@ -48,6 +48,7 @@ Crystallization is an interesting problem domain, while we can't measure the act
 
 ![ezgif-5-91bd283579](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/e5b83066-0ac1-4b9e-b0f0-0bb63be993e5)
 <img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">
+
 (Please wait a few seconds as the time lapse is a little long)
 
 
@@ -74,6 +75,11 @@ I tried to extend this analysis to other types of flowers as well :
 
 
 
-## Analysis of Vision Algorithms
-These Vision algorithms are quite fun to tweak with, as they allow you to narrow down the type of blob that you are searching for. If I wanted to target the larger white blood cells I would simply have to increase the size of the blob and zero in on the defects, however it is a nuanced parameter as red blood cells can also have large sizes, so it is not appropriate to just distinguish based on size. 
-Training a model to recognize the color, shape and collection of the blood cells would be a more long standing solution. 
+## Code breakdown and Conclusion
+1. For Contour detection
+
+'''
+Hello
+'''
+
+3. For SAM
