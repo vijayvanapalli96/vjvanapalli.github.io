@@ -79,7 +79,60 @@ I tried to extend this analysis to other types of flowers as well :
 1. For Contour detection
 
 ```
-Hello
-```
+def process_frame(frame):
+    global prev_total_area
 
-3. For SAM
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    _, thresh = cv2.threshold(gray, 60, 255, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    total_area = 0
+
+    for contour in contours:
+        area = cv2.contourArea(contour)
+        if area > 100:
+            cv2.drawContours(frame, [contour], -1, (0, 255, 0), 2)
+            total_area += area
+
+    growth_rate = (total_area - prev_total_area) 
+    cv2.putText(frame, f"Total Area: {total_area}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f"Growth Rate: {growth_rate} pixels/sec", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+    prev_total_area = total_area
+    growth_rates.append(growth_rate)
+
+    return frame
+
+
+```
+Here we threshold the image to generate a contrast of active image colors with the black background. It is used to threshold pixel values, essentially keeping this variable depending on the kind of flower used. This function is then called upon each frame of the videos shown earlier to get a binary image upon which we find contours
+
+
+
+2. For SAM
+
+```
+import cv2
+import supervision as sv
+
+image_bgr = cv2.imread(IMAGE_PATH)
+image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+
+sam_result = mask_generator.generate(image_rgb)
+
+mask_annotator = sv.MaskAnnotator(color_lookup=sv.ColorLookup.INDEX)
+
+detections = sv.Detections.from_sam(sam_result=sam_result)
+
+annotated_image = mask_annotator.annotate(scene=image_bgr.copy(), detections=detections)
+
+sv.plot_images_grid(
+    images=[image_bgr, annotated_image],
+    grid_size=(1, 2),
+    titles=['source image', 'segmented image']
+)
+```
+Here we load the SAM model, and generate masks to annotate our original image with so we can understand the context of why a certain mask has been generated. 
+
+To conclude, while Segment Anything is very impressive in generating distinctive masks for objects, it requires a lot of time and resources. 
+Whereas on a case-by-case basis, we can tweak thresholds and obtain masks that are similar in quality distinguishing from noisy backgrounds by applying a bit of preprocessing. In this short case study we only looked at color thresholding yet achieved masks on a few videos that allowed us to calculate how fast the object was changing/growing. 
