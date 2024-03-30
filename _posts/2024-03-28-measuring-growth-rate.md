@@ -34,7 +34,7 @@ This process proved to be less computationally intensive.
 For the same video, I thresholded the image, and used cv2s findContour function to isolate the foreground object from the blank background. The contrasting colors and the high definition video allowed me to not account of any occlusion or noise. 
 The results can be seen below
 
-![blueoutput](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7d32e04f-d856-4fc3-a983-0447407d5926)![output (4)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/800c4607-5cd2-4d78-93ab-893708316130)
+![output (4)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/800c4607-5cd2-4d78-93ab-893708316130)
 
 
 
@@ -52,7 +52,7 @@ For the blue flower we can observe the following results, which is consistent wi
 
 
 
-<img width="304" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1fed2127-061b-46e6-a64a-3eb78df7dff2">
+![blueoutput](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7d32e04f-d856-4fc3-a983-0447407d5926)<img width="304" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1fed2127-061b-46e6-a64a-3eb78df7dff2">
 
 
 ## Analysis of Vision Algorithms
