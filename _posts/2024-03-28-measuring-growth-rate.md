@@ -78,8 +78,8 @@ I tried to extend this analysis to other types of flowers as well :
 ## Code breakdown and Conclusion
 1. For Contour detection
 
-'''
+```
 Hello
-'''
+```
 
 3. For SAM
