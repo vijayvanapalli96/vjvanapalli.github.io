@@ -23,6 +23,10 @@ We perform similar mask segmenation to see how accurately it outlines the flower
 ![output (2)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/d17cb4b3-4106-4cba-9c9f-fee01636de89)
 
 It looks like the SAM basically isolates the foreground object and applies a red tint mask to the black background
+
+The issues faced are as follows:
+1. Processing a single video takes a lot of time and resources
+2. Calculating the area under a mask requires more data manipulation, employing cv2 functions to find the area enclosed within a changing polygon that may get disjointed. 
    
 ## Preprocessing Images
 
