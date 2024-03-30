@@ -56,6 +56,10 @@ For the blue flower we can observe the following results, which is consistent wi
 
 ![blueoutput](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7d32e04f-d856-4fc3-a983-0447407d5926)<img width="304" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1fed2127-061b-46e6-a64a-3eb78df7dff2">
 
+I tried to extend this analysis to other types of flowers as well 
+<img width="338" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/6f88c86f-c599-42c8-af57-a080f49852e0">![ezgif-3-e762fdcb63](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/d81ce803-01a6-4a45-9f6b-8314ba378fab)
+
+
 
 ## Analysis of Vision Algorithms
 These Vision algorithms are quite fun to tweak with, as they allow you to narrow down the type of blob that you are searching for. If I wanted to target the larger white blood cells I would simply have to increase the size of the blob and zero in on the defects, however it is a nuanced parameter as red blood cells can also have large sizes, so it is not appropriate to just distinguish based on size. 
