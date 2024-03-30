@@ -44,8 +44,11 @@ Similarly we can extend this way of measuring growth to other objects.
 Crystallization is an interesting problem domain, while we can't measure the actual mass of the crystal we can at least measure the rate of growth if given the duration for which the time lapse has occured as shown below. 
 
 
-https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/cb98c101-c5fb-4b7f-ba00-97146daaaae3<img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">
 
+
+![ezgif-5-91bd283579](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/e5b83066-0ac1-4b9e-b0f0-0bb63be993e5)
+<img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">
+(Please wait a few seconds as the time lapse is a little long)
 
 
 In the dandelion video the area change is quite significantly measured, and thus allows us to calculate growth rate.
