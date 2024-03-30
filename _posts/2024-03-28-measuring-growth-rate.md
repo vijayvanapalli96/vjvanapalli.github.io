@@ -43,7 +43,7 @@ The results can be seen below
 Similarly we can extend this way of measuring growth to other objects. 
 Crystallization is an interesting problem domain, while we can't measure the actual mass of the crystal we can at least measure the rate of growth if given the duration for which the time lapse has occured as shown below. 
 
-<img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">![output (4) (1)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4f506019-f8c4-4623-80aa-d897fd4f6ad3)
+![output (4) (1)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4f506019-f8c4-4623-80aa-d897fd4f6ad3)<img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">
 
 
 
