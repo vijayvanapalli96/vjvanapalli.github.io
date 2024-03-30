@@ -40,16 +40,18 @@ The results can be seen below
 
 
 
-Similarily we can extend this way of measuring growth to other objects. 
-Crystallization is an interesting problem domain, while we cant measure the actual mass of the crystal we can atleast measure the rate of growth if given the duration for which the time lapse has occored as shown below. 
+Similarly we can extend this way of measuring growth to other objects. 
+Crystallization is an interesting problem domain, while we can't measure the actual mass of the crystal we can at least measure the rate of growth if given the duration for which the time lapse has occured as shown below. 
+
+<img width="329" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2d99025c-937d-4d44-a65b-ac5b5e8909e4">![output (4) (1)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4f506019-f8c4-4623-80aa-d897fd4f6ad3)
+
+
 
 In the dandelion video the area change is quite significantly measured, and thus allows us to calculate growth rate.
 We can apply similar constraints 
 ## Analysis of Results 
 
-For the blue flower we can observe the following results, which is consistent with what we see, the growth rate does not really change much during the duration of the video 
-
-
+For the blue flower we can observe the following results, which is consistent with what we see, the growth rate does not really change much during the duration of the video after the initial spike which means we're looking at a consistent growth rate, or there isn't much noticible change
 
 
 ![blueoutput](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7d32e04f-d856-4fc3-a983-0447407d5926)<img width="304" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1fed2127-061b-46e6-a64a-3eb78df7dff2">
