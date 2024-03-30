@@ -34,7 +34,10 @@ This process proved to be less computationally intensive.
 For the same video, I thresholded the image, and used cv2s findContour function to isolate the foreground object from the blank background. The contrasting colors and the high definition video allowed me to not account of any occlusion or noise. 
 The results can be seen below
 
-![output (4)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/800c4607-5cd2-4d78-93ab-893708316130)
+![blueoutput](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7d32e04f-d856-4fc3-a983-0447407d5926)![output (4)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/800c4607-5cd2-4d78-93ab-893708316130)
+
+
+
 
 
 Similarily we can extend this way of measuring growth to other objects. 
@@ -44,7 +47,13 @@ In the dandelion video the area change is quite significantly measured, and thus
 We can apply similar constraints 
 ## Analysis of Results 
 
-From the results above we can see it usually is just a toss between the DoG filters, as they are more consistent atleast with finding blobs. Another unexplored alternative would be to try out a tensorflow model, trained on detecting the actual blobs to see how this fairs against the Vision Algorithms deployed here. 
+For the blue flower we can observe the following results, which is consistent with what we see, the growth rate does not really change much during the duration of the video 
+
+
+
+
+<img width="304" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1fed2127-061b-46e6-a64a-3eb78df7dff2">
+
 
 ## Analysis of Vision Algorithms
 These Vision algorithms are quite fun to tweak with, as they allow you to narrow down the type of blob that you are searching for. If I wanted to target the larger white blood cells I would simply have to increase the size of the blob and zero in on the defects, however it is a nuanced parameter as red blood cells can also have large sizes, so it is not appropriate to just distinguish based on size. 
