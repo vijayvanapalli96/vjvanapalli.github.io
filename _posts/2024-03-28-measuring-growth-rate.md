@@ -64,11 +64,8 @@ I tried to extend this analysis to other types of flowers as well :
 ![output (8)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3a721c9e-046a-4f9a-98a4-93ae09232cc4)<img width="314" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/f1c00258-c2e3-4c9a-8c5f-893420fdd833">
 
 
-<img w
 
-https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/bd32ac7c-263e-4bb2-914a-bb9de28860da
-
-idth="332" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9ec4c518-868a-4149-835d-5ca3f56e03b6">
+![output (9) (1)](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/5ceacf88-5c5a-42b9-9720-27f73a5ac60c)<img width="332" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/724e02f3-cff3-4a7a-b4b6-fbec247c9248">
 
 
 
