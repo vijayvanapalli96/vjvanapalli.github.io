@@ -1,6 +1,6 @@
 
 
-## Measuring Growth Rate in Objects
+## KAGGLE COMPETITION
 
 ## Introduction 
 
