@@ -53,7 +53,23 @@ My initial steps would be to replace the detect_keypoints functions by using the
 
 We can try to visualize where the key points are for the following image here 
 
-[INSERT IMAGES HERE]
+**SIFT**
+
+<img width="454" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/89126a50-9d70-4347-b602-964122a0d0f3">
+
+**AKAZE**
+
+<img width="454" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/e592576a-f8be-4c4f-8762-081bdebd2d7f">
+
+
+**ORB**
+
+<img width="485" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/98053e7f-d045-42f4-94a8-471e85713e18">
+
+
+
+
+
 
 Next for generating keypoint distances, I go with the traditional, BFMatcher with the cv2.NORM_HAMMING norm type, which is typically good for binary descriptions (like those from AKAZE). This matcher performs brute-force matching with cross-check meaning it ensures mutual matches. Debugging and replacing KF.LightGlueMatcher I noticed that it took a lot more time to calculate the distances observed between key points.
 
