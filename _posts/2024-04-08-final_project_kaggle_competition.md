@@ -38,11 +38,34 @@ COLMAP is an open source software used for 3D reconstruction from images. It can
 
 <img width="385" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/763512bc-325c-4e91-832b-0e8ffb862e75">
 
-Now that we have similar image pairs all mapped into COLMAP, we can use its reconstruction algorithm that starts with two pairs of images and continually adds more images to the scene thus creating a reconstructed scene with camera information. 
+Now that we have similar image pairs all mapped into COLMAP, we can use its reconstruction algorithm that starts with two pairs of images and continually adds more images to the scene thus creating a reconstructed scene with camera information.
+The final submission must be a CSV file - containing the image_path, the dataset name, the scene, the rotation_matrix and the translation vector. 
 
 ## Unique changes I have made to my submission in an attempt to reach a (better/worse) score 
 
-My initial challenge with this competition is familiarizing myself with Kaggle Competitions in general. This contest has a No Internet Clause wherein all models must be pre downloaded and loaded in a single run. 
-This spurred the thought process of using OpenCVs library as it has a number of keypoint detectors and methods to use out of the box without having to download many models. 
+My initial challenge with this competition is familiarizing myself with Kaggle Competitions in general. This contest has a No Internet Clause wherein all models must be pre-downloaded and loaded in a single run. 
+This spurred the thought process of using OpenCV library as it has a number of key point detectors and methods to use out of the box without having to download many models. 
 This also lead me on to try and see what kind of a baseline score I could reach of my own accord. 
+
+My initial steps would be to replace the detect_keypoints functions by using the suggested traditional methods via OpenCV Python - ORB, SIFT, AKAZE. 
+
+We can try to visualize where the key points are for the following image here 
+
+[INSERT IMAGES HERE]
+
+Next for generating keypoint distances, I go with the traditional, BFMatcher with the cv2.NORM_HAMMING norm type, which is typically good for binary descriptions (like those from AKAZE). This matcher performs brute-force matching with cross-check meaning it ensures mutual matches. Debugging and replacing KF.LightGlueMatcher I noticed that it took a lot more time to calculate the distances observed between key points.
+
+Finally, I could not find a reasonable alternative to PYCOLMAP and the Exhaustive matching algorithm that it uses for reconstruction using the RANSAC algorithm, so I tried to have my keypoints fit the parameter requirements of RANSAC. 
+Basically, all the key points are mapped into COLMAP, creating a database. 
+
+The challenge I faced here was keeping track of the shape of the output from SIFT, ORB and AKAZE as opposed to ALIKED descriptors.
+The features being generated were of the dimension (,7), when it had to be (,2). This is further reinforced in COLMAP where we can see an **assert(dimension==2)** being implemented in the utility folders. This leads me to assume that the expected features are only x and y. 
+
+However, I would require to go into COLMAPs documentation to further reconfirm that the two features are indeed x,y and not some other inferred feature which is a combination of multiple. 
+
+Due to time and kaggle resource constraints I tried to get my submission scored, yet couldn't due to an exception being thrown at the very end which I'm still trying to figure out. However what I could do is compare the output submission formats and see how well I fared trying to sub out some of the methods used. 
+
+
+
+
 
