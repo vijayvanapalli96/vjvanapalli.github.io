@@ -66,8 +66,9 @@ We can try to visualize where the key points are for the following image here
 
 <img width="485" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/98053e7f-d045-42f4-94a8-471e85713e18">
 
+**Detections keypoints to beat - ALIKED**
 
-
+<img width="518" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/00b98a96-6b59-4012-a1b8-abab4e1078f1">
 
 
 
@@ -98,6 +99,10 @@ My attempt at this content was able to find only 8 successful reconstructions wh
 <img width="506" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9c89a6b7-514b-4e5d-95b7-47d53d7f4181">
 
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
+
+## Concluion 
+
+I believe I can achieve a better performance by looking for deep learning methods used for image embeddings and finding an algorithm that overcomes ALIKED, and LightGlueMatchers. Particularly looking for better generated keypoints in comparison to traditional methods like SIFT, AKAZE, and ORB. Furthermore, there are alternatives for sparse reconstruction as well but I would need to look into algorithms other than RANSAC. The areas of improvement are definitely finding better matches so as to compete with what the baseline model can achieve and then going for reconstruction from there. 
 
 
 
