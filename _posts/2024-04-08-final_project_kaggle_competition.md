@@ -40,5 +40,9 @@ COLMAP is an open source software used for 3D reconstruction from images. It can
 
 Now that we have similar image pairs all mapped into COLMAP, we can use its reconstruction algorithm that starts with two pairs of images and continually adds more images to the scene thus creating a reconstructed scene with camera information. 
 
+## Unique changes I have made to my submission in an attempt to reach a (better/worse) score 
 
+My initial challenge with this competition is familiarizing myself with Kaggle Competitions in general. This contest has a No Internet Clause wherein all models must be pre downloaded and loaded in a single run. 
+This spurred the thought process of using OpenCVs library as it has a number of keypoint detectors and methods to use out of the box without having to download many models. 
+This also lead me on to try and see what kind of a baseline score I could reach of my own accord. 
 
