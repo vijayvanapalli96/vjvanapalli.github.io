@@ -100,7 +100,7 @@ My attempt at this content was able to find only 8 successful reconstructions wh
 
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
 
-## Concluion 
+## Conclusion 
 
 I believe I can achieve a better performance by looking for deep learning methods used for image embeddings and finding an algorithm that overcomes ALIKED, and LightGlueMatchers. Particularly looking for better generated keypoints in comparison to traditional methods like SIFT, AKAZE, and ORB. Furthermore, there are alternatives for sparse reconstruction as well but I would need to look into algorithms other than RANSAC. The areas of improvement are definitely finding better matches so as to compete with what the baseline model can achieve and then going for reconstruction from there. 
 
