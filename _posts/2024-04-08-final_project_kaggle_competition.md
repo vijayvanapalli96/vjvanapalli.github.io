@@ -88,6 +88,30 @@ Transparent Glass object
 <img width="404" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/374be90b-7808-4160-a6bb-f4e1c645e3c7">
 
 
+Looking at the keypoints SuperPoint detects for each of these simple objects shows that it falls subject to first looking at poor characteristics to outline. For instance initially these were the points that were highlighted:
+
+
+<img width="390" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/06caa821-26c1-449d-aeaa-47250ed4b9dd">
+
+Here we see borders being highlighted as keypoints, which is not relevant for reconstruction. So to the wrapped of the detect_keypoints I added a border to ignore the keypoints being generated as shown here: 
+
+
+```
+def detect_keypoints(
+    paths: list[Path],
+    feature_dir: Path,
+    num_features: int = 4096,
+    resize_to: int = 1024,
+    border_margin: int = 50,  # Margin size in pixels after resizing
+    device: torch.device = torch.device("cpu"),
+    visualize: bool = False
+) -> None:
+    """Detects keypoints in a list of images using the SuperPoint model, resizes them to original dimensions,
+    and stores them, ignoring keypoints close to the borders."""
+```
+
+
+
 **2.Architectures from far away**
 
 Roman Ruins
