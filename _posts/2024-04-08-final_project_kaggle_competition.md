@@ -96,6 +96,10 @@ Looking at the keypoints SuperPoint detects for each of these simple objects sho
 Here we see borders being highlighted as keypoints, which is not relevant for reconstruction. So to the wrapped of the detect_keypoints I added a border to ignore the keypoints being generated as shown here: 
 
 
+<img width="386" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/b132acbb-ffd0-4a62-aa97-85d406466434">
+
+
+
 ```
 def detect_keypoints(
     paths: list[Path],
@@ -109,6 +113,34 @@ def detect_keypoints(
     """Detects keypoints in a list of images using the SuperPoint model, resizes them to original dimensions,
     and stores them, ignoring keypoints close to the borders."""
 ```
+
+After 
+
+
+<img width="386" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4eda8991-9d9e-4edf-9959-055e6dda7081">
+
+
+To better visualize the matches I iterate over all the images and use:
+
+This is a custom function that I had to implement myself whose header looks like: 
+
+```
+def mutual_nearest_neighbors(
+    paths: list[Path],
+    index_pairs: list[tuple[int, int]],
+    feature_dir: Path,
+    min_matches: int = 15,
+    verbose: bool = True,
+    device: torch.device = torch.device("cpu"),
+    visualize: bool = False
+) -> None:
+    with h5py.File(feature_dir / "keypoints.h5", "r") as f_keypoints, \
+         h5py.File(feature_dir / "descriptors.h5", "r") as f_descriptors, \
+         h5py.File(feature_dir / "matches.h5", "w") as f_matches:
+```
+
+
+<img width="579" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1f87c8c4-c32d-49f9-9263-bcc6f5e2d790">
 
 
 
