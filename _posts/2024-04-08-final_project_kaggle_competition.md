@@ -164,8 +164,6 @@ Observing the keypoints here, shows that SuperPoint has the tendency to basicall
 
 The above images are captured with about 1024 keypoints while excluding the faulty border, which shows a generous improvement compared to the earlier iteration
 
-<img width="574" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/13ab4199-ec5b-4376-bc42-694a1ba17add">
-
 However in some instances there are a few bad matches too, but however this discrepancy is mostly due to the mismatch in image ratios and only visual but by no means is the matching still perfect: 
 
 <img width="574" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/19c5603f-04ca-46d3-8089-93da6987255f"><img width="576" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/49c7a759-5ae2-4ab7-b123-9dd555acaadf">
