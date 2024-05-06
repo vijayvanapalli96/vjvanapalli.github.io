@@ -74,6 +74,33 @@ We can try to visualize where the key points are for the following image here
 
 Next for generating keypoint distances, I go with the traditional, BFMatcher with the cv2.NORM_HAMMING norm type, which is typically good for binary descriptions (like those from AKAZE). This matcher performs brute-force matching with cross-check meaning it ensures mutual matches. Debugging and replacing KF.LightGlueMatcher I noticed that it took a lot more time to calculate the distances observed between key points.
 
+
+**SUPERPOINT**
+
+Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
+
+I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
+**1.Simple Objects**
+Transparent Glass object 
+
+<img width="404" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/374be90b-7808-4160-a6bb-f4e1c645e3c7">
+
+**2.Architectures from far away**
+Roman Ruins
+
+
+<img width="383" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/64e67a95-da7d-4361-a7e7-a0c17e8d15de">
+
+
+**3.Complex Structures**
+Church
+
+
+<img width="360" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/490de49a-2dde-43cd-b0be-7ec97d2801a6">
+
+
+**3.Trying to Filter out irregularities like hard shapes from the Foreground like Trees**
+
 Finally, I could not find a reasonable alternative to PYCOLMAP and the Exhaustive matching algorithm that it uses for reconstruction using the RANSAC algorithm, so I tried to have my key points fit the parameter requirements of RANSAC. 
 Basically, all the key points are mapped into COLMAP, creating a database. 
 
