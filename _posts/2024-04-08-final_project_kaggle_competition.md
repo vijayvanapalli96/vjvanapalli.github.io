@@ -114,11 +114,6 @@ def detect_keypoints(
     and stores them, ignoring keypoints close to the borders."""
 ```
 
-After 
-
-
-<img width="386" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4eda8991-9d9e-4edf-9959-055e6dda7081">
-
 
 To better visualize the matches I iterate over all the images and use:
 
@@ -150,6 +145,19 @@ Roman Ruins
 
 
 <img width="383" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/64e67a95-da7d-4361-a7e7-a0c17e8d15de">
+
+
+We can try to infer similar results for the Roman Ruins, especially the keypoints and the matching points across different viewing angles:
+
+Keypoints:
+
+Observing the keypoints here, shows that SuperPoint has the tendency to basically outline the shadows of the images, we could try and lower the number of keypoints detected to see if only the key features are detected:
+
+
+
+<img width="386" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/530cc11e-5ced-4613-8d8b-ab72337bec0a"><img width="384" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/c70a696e-0f37-4a5e-9db6-b2651c79bc48">
+
+
 
 
 **3.Complex Structures**
