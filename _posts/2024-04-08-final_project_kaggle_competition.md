@@ -181,7 +181,22 @@ Church
 <img width="360" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/490de49a-2dde-43cd-b0be-7ec97d2801a6">
 
 
-**3.Trying to Filter out irregularities like hard shapes from the Foreground like Trees**
+Here we run into problems where the trees take a lot of the keypoints, although we do get good matches like: 
+
+<img width="575" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/e523bdc9-96ee-4ea0-8b38-cb3a4b5fed01"><img width="581" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2b4ff2b2-a075-489f-a056-8eaf2a280242">
+
+In areas where there is lots of occlusions and trees we get bad matches:
+
+
+However, I try experimenting with different methods to try and ignore trees all together - I attempt this by making a function that essentially crops out any green HSV colors from the original image and saves it another folder. Doing so results in images with matches like so, where you do not see any more matches from the middle of the trees but rather from the outside 
+
+<img width="578" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3c977211-cde9-42ea-8f34-26ffd75f6dcb">
+
+
+
+**Trying to Filter out irregularities like hard shapes from the Foreground like Trees:**
+
+We get the following foreground 
 
 Finally, I could not find a reasonable alternative to PYCOLMAP and the Exhaustive matching algorithm that it uses for reconstruction using the RANSAC algorithm, so I tried to have my key points fit the parameter requirements of RANSAC. 
 Basically, all the key points are mapped into COLMAP, creating a database. 
