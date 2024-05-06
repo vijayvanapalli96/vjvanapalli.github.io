@@ -185,10 +185,11 @@ Here we run into problems where the trees take a lot of the keypoints, although 
 In areas where there is lots of occlusions and trees we get bad matches:
 
 
+**Trying to Filter out irregularities like hard shapes from the Foreground like Trees:**
+
 However, I try experimenting with different methods to try and ignore trees all together - I attempt this by making a function that essentially crops out any green HSV colors from the original image and saves it another folder. Doing so results in images with matches like so, where you do not see any more matches from the middle of the trees but rather from the outside 
 
 
-**Trying to Filter out irregularities like hard shapes from the Foreground like Trees:**
 
 <img width="578" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3c977211-cde9-42ea-8f34-26ffd75f6dcb">
 
