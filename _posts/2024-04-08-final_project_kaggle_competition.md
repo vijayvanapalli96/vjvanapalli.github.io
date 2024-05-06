@@ -151,11 +151,26 @@ We can try to infer similar results for the Roman Ruins, especially the keypoint
 
 Keypoints:
 
-Observing the keypoints here, shows that SuperPoint has the tendency to basically outline the shadows of the images, we could try and lower the number of keypoints detected to see if only the key features are detected:
-
 
 
 <img width="386" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/530cc11e-5ced-4613-8d8b-ab72337bec0a"><img width="384" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/c70a696e-0f37-4a5e-9db6-b2651c79bc48">
+
+Observing the keypoints here, shows that SuperPoint has the tendency to basically outline the shadows of the images, we could try and lower the number of keypoints detected to see if only the key features are detected:
+
+
+<img width="385" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/b24e9338-2641-4ffa-83dc-5a6767e0e2ed"><img width="382" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/c98c7d4e-9db7-4489-824d-3dc800ab3ac3"><img width="383" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/7e4318c8-d422-4a4c-a1cf-8124ddc32a0e"><img width="286" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/28cef63f-4ccf-4a75-8ed1-c649ea3acc36"><img width="381" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3d14e040-8570-4391-9eac-27727a61e26f">
+
+
+
+The above images are captured with about 1024 keypoints while excluding the faulty border, which shows a generous improvement compared to the earlier iteration
+
+<img width="574" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/13ab4199-ec5b-4376-bc42-694a1ba17add">
+
+However in some instances there are a few bad matches too, but however this discrepancy is mostly due to the mismatch in image ratios and only visual but by no means is the matching still perfect: 
+
+<img width="574" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/19c5603f-04ca-46d3-8089-93da6987255f"><img width="576" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/49c7a759-5ae2-4ab7-b123-9dd555acaadf">
+
+
 
 
 
