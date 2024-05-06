@@ -80,12 +80,16 @@ Next for generating keypoint distances, I go with the traditional, BFMatcher wit
 Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
 
 I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
+
 **1.Simple Objects**
+
 Transparent Glass object 
 
 <img width="404" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/374be90b-7808-4160-a6bb-f4e1c645e3c7">
 
+
 **2.Architectures from far away**
+
 Roman Ruins
 
 
@@ -93,6 +97,7 @@ Roman Ruins
 
 
 **3.Complex Structures**
+
 Church
 
 
