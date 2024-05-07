@@ -228,7 +228,7 @@ We can try to visualize where the key points are for the following image here
 Next for generating keypoint distances, I go with the traditional, BFMatcher with the cv2.NORM_HAMMING norm type, which is typically good for binary descriptions (like those from AKAZE). This matcher performs brute-force matching with cross-check meaning it ensures mutual matches. Debugging and replacing KF.LightGlueMatcher I noticed that it took a lot more time to calculate the distances observed between key points.
 
 
-
+**Visualizing Keypoints with SuperPoint**
 
 **1.Simple Objects**
 
