@@ -405,6 +405,21 @@ Following are all the matches that are visibly discernable between the images bu
 <img width="414" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/b889723a-a331-43fe-be14-5ad34829c52f">
 
 
+Implementing the same notebook in Google Colab resulted in session hangs
+
+<img width="416" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/4d9a647f-5c9e-4bce-880b-656cfe84515c">
+
+After producing results competent enough until full reconstruction.
+
+Debugging the code individually shows that reconstruction is definitely plausible however, there is possibly a linking error between the training and testing sets that I need to transfer over to the kaggle notebook appropriately. 
+
+ALIKED VS SUPERPOINT 
+
+<img width="638" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/8b367059-dfbc-441b-936f-d6524175e094">  vs <img width="511" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/24996e24-a43e-4eb0-a12e-20f374a9f1e3">
+
+
+
+
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
 
 ## Assured Outcomes to Compare to
