@@ -501,7 +501,7 @@ I will update this section as soon as I get a reasonable score, but clearly I as
 
 ## Assured Outcomes to Compare to
 
-On the side to see how my reconstruction methods fair against fully built libraries like KF.LightGlueMatcher and papers like Hierarchical Localization, I used the sample datasets in hand to see how the reconstruction fairs here 
+ Here I try to see how my reconstruction methods fair against fully built libraries like KF.LightGlueMatcher and papers like Hierarchical Localization, I used the sample datasets in hand to see how the reconstruction fairs here 
 https://github.com/cvg/Hierarchical-Localization/
 
 
@@ -530,13 +530,13 @@ The reconstruction isn't as defined as the church reconstruction is
 
 ## Challenges Faced
 **Session Timeouts in Colab**
-Often due to memory intensive operations or improper handling of database, after running reconstruction, the entire session in Colab Restarts, or it goes into an endless wait time on Kaggle which could mean that either excess keypoints have been matched and reconstruction is a little difficult to achieve.
+Often due to memory-intensive operations or improper handling of the database, after running reconstruction, the entire session in Colab Restarts, or it goes into an endless wait time on Kaggle which could mean that either excess key points have been matched and reconstruction is a little difficult to achieve.
 **Reconstruction with COLMAP**
-Using match_exhaustive, we claim to do Reconstruction with RANSAC algorithm. The sample submission csv format is given by the competition hosts, thus following this format of steps is nececssary. 
+Using match_exhaustive, we claim to do Reconstruction with RANSAC algorithm. The sample submission csv format is given by the competition hosts, thus following this format of steps is necessary. 
 
 ## Conclusion 
 
-I believe I can achieve a better performance by looking for deep learning methods used for image embeddings and finding an algorithm that overcomes ALIKED, and LightGlueMatchers. Particularly looking for better generated keypoints in comparison to traditional methods like SIFT, AKAZE, and ORB. Furthermore, there are alternatives for sparse reconstruction as well but I would need to look into algorithms other than RANSAC. The areas of improvement are definitely finding better matches so as to compete with what the baseline model can achieve and then going for reconstruction from there. 
+I believe I can achieve a better performance by looking for deep learning methods used for image embeddings and finding an algorithm that overcomes ALIKED, and LightGlueMatchers. Particularly looking for better-generated keypoints in comparison to traditional methods like SIFT, AKAZE, ORB, and now SuperPoint. Through this challenge, I had the opportunity to understand reconstruction through COLMAP, the data frames required to perform reconstructions, and more importantly, gain an intuition for matching key points between buildings. Furthermore, there are alternatives for sparse reconstruction as well but I would need to look into algorithms other than RANSAC. The areas of improvement are definitely finding better matches so as to compete with what the baseline model can achieve and then going for reconstruction from there. 
 
 
 
