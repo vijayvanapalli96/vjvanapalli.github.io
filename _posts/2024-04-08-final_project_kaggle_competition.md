@@ -370,18 +370,36 @@ However, I try experimenting with different methods to try and ignore trees all 
 After a lot of testing I wrote a HSV color picker to block out globs of green from the image in an effort to have them not look like interesting features for the descriptor to pick up. And to some extent it does look like it's working! But it seems to catch the outline of the dark blob as a feature to track, so this needs more finetuning or a different approach altogether
 
 ```
-import cv2
-import numpy as np
-import os
 
 def find_green_mask(image):
-    ~
+    # Convert image to HSV color space
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+    # Define range of green color in HSV
+    lower_green = np.array([40, 40, 40])
+    upper_green = np.array([80, 255, 255])
+
+    # Threshold the HSV image to get only green colors
+    mask = cv2.inRange(hsv, lower_green, upper_green)
+    return mask
 
 def remove_green_objects(image, mask):
-   ~
+    # Set all green areas to black
+    image[np.where(mask != 0)] = [0, 0, 0]
+    return image
 
 def process_images(input_dir, output_dir):
-   ~
+    for filename in os.listdir(input_dir):
+        if filename.endswith(".png"):  # Adjust the file extension if needed
+            img_path = os.path.join(input_dir, filename)
+            image = cv2.imread(img_path)
+            mask = find_green_mask(image)
+            image_no_green = remove_green_objects(image, mask)
+
+            # Save the modified image
+            output_filename = os.path.join(output_dir, f"{filename[:-4]}_no_green.png")  # Save as PNG to avoid JPG artifacts
+            cv2.imwrite(output_filename, image_no_green)
+
 # Directory containing images
 input_directory = "/content/drive/MyDrive/image_dataset/train/church/images"
 # Directory to save modified images
@@ -393,6 +411,7 @@ if not os.path.exists(output_directory):
 
 # Process the images
 process_images(input_directory, output_directory)
+
 
 ```
 
