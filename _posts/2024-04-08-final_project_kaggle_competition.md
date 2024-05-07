@@ -249,21 +249,6 @@ Here we see borders being highlighted as keypoints, which is not relevant for re
 
 
 
-```
-def detect_keypoints(
-    paths: list[Path],
-    feature_dir: Path,
-    num_features: int = 4096,
-    resize_to: int = 1024,
-    border_margin: int = 50,  # Margin size in pixels after resizing
-    device: torch.device = torch.device("cpu"),
-    visualize: bool = False
-) -> None:
-    """Detects keypoints in a list of images using the SuperPoint model, resizes them to original dimensions,
-    and stores them, ignoring keypoints close to the borders."""
-```
-
-
 To better visualize the matches I iterate over all the images and use:
 
 This is a custom function that I had to implement myself whose header looks like: 
