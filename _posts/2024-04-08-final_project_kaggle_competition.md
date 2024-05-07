@@ -80,7 +80,7 @@ However this is exactly what I will be exploring later on! Using traditional met
 
 ## Detecting keypoints with SuperPoint (Custom written methods with AI help, but lots of tweaking) 
 
-'''
+```
 import torch
 import h5py
 from pathlib import Path
@@ -167,7 +167,7 @@ def detect_keypoints(
                 if visualize:
                     visualize_keypoints(path, keypoints)
 
-'''
+```
 
 ## Measuring Keypoint Distances 
 Here in this function, we take a list of image paths, and index pairs for images to compare and make a directory to store features.  Here we identify and record correspondences between key points in different images for later alignment.  We do this by looping through pairs of indices to get the images that have been store to compare. 
