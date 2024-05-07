@@ -228,9 +228,6 @@ The following code was taken from https://github.com/magicleap/SuperPointPretrai
 
 However I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
 
-```
-
-```
 
 **1.Simple Objects**
 
