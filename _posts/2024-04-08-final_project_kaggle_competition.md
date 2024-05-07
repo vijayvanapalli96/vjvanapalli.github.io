@@ -413,9 +413,14 @@ After producing results competent enough until full reconstruction.
 
 Debugging the code individually shows that reconstruction is definitely plausible however, there is possibly a linking error between the training and testing sets that I need to transfer over to the kaggle notebook appropriately. 
 
-ALIKED VS SUPERPOINT 
+ALIKED Debugging after COLMAP reconstruction
 
-<img width="638" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/8b367059-dfbc-441b-936f-d6524175e094">  vs <img width="511" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/24996e24-a43e-4eb0-a12e-20f374a9f1e3">
+<img width="638" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/8b367059-dfbc-441b-936f-d6524175e094">  
+
+SUPERPOINT Debugging after COLMAP reconstruction
+
+
+<img width="511" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/24996e24-a43e-4eb0-a12e-20f374a9f1e3">
 
 
 
