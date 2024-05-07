@@ -337,6 +337,8 @@ The above images are captured with about 1024 keypoints while excluding the faul
 
 However in some instances there are a few bad matches too, but however this discrepancy is mostly due to the mismatch in image ratios and only visual but by no means is the matching still perfect: 
 
+
+
 <img width="574" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/19c5603f-04ca-46d3-8089-93da6987255f"><img width="576" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/49c7a759-5ae2-4ab7-b123-9dd555acaadf">
 
 
@@ -364,6 +366,8 @@ However, I try experimenting with different methods to try and ignore trees all 
 
 <img width="578" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3c977211-cde9-42ea-8f34-26ffd75f6dcb">
 
+
+After a lot of testing I wrote a HSV color picker to block out globs of green from the image in an effort to have them not look like interesting features for the descriptor to pick up. And to some extent it does look like it's working! But it seems to catch the outline of the dark blob as a feature to track, so this needs more finetuning or a different approach alltogether
 
 Bad matches when the green is not masked out and the keypoint extractor recognizes more of the bushes as keypoints leading to improper matching like so: 
 
