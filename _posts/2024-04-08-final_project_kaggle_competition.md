@@ -367,7 +367,35 @@ However, I try experimenting with different methods to try and ignore trees all 
 <img width="578" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/3c977211-cde9-42ea-8f34-26ffd75f6dcb">
 
 
-After a lot of testing I wrote a HSV color picker to block out globs of green from the image in an effort to have them not look like interesting features for the descriptor to pick up. And to some extent it does look like it's working! But it seems to catch the outline of the dark blob as a feature to track, so this needs more finetuning or a different approach alltogether
+After a lot of testing I wrote a HSV color picker to block out globs of green from the image in an effort to have them not look like interesting features for the descriptor to pick up. And to some extent it does look like it's working! But it seems to catch the outline of the dark blob as a feature to track, so this needs more finetuning or a different approach altogether
+
+```
+import cv2
+import numpy as np
+import os
+
+def find_green_mask(image):
+    ~
+
+def remove_green_objects(image, mask):
+   ~
+
+def process_images(input_dir, output_dir):
+   ~
+# Directory containing images
+input_directory = "/content/drive/MyDrive/image_dataset/train/church/images"
+# Directory to save modified images
+output_directory = "/content/drive/MyDrive/image_dataset/train/church_no_green/images"
+
+# Create output directory if it doesn't exist
+if not os.path.exists(output_directory):
+    os.makedirs(output_directory)
+
+# Process the images
+process_images(input_directory, output_directory)
+
+```
+
 
 Bad matches when the green is not masked out and the keypoint extractor recognizes more of the bushes as keypoints leading to improper matching like so: 
 
