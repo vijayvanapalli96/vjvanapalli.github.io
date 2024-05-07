@@ -82,12 +82,12 @@ However this is exactly what I will be exploring later on! Using traditional met
 
 **SUPERPOINT**
 
-Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
+Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. A technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images has been developed in 2018. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
 
 I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
 The following code was taken from https://github.com/magicleap/SuperPointPretrainedNetwork/blob/master/demo_superpoint.py
 
-However I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
+I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
 
 ```
 import torch
