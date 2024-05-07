@@ -425,6 +425,15 @@ https://github.com/cvg/Hierarchical-Localization/
 Here we see the keypoint descriptors not ignoring trees, even finding these reconstructions in the 3D model, but surprisingly the distance between different parts of the church are clearly represented here 
 
 
+Here is another example where KF.LightGlueMatcher fails, conveying how hard of a problem it really is to consistently reconstruct scenes with the same solution pipeline 
+
+<img width="377" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/097405da-d9ab-4e32-9c76-1c3e75041389">
+
+The reconstruction isn't as defined as the church reconstruction is 
+
+![ezgif-2-da67d21bb5](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1d68d831-cea3-4289-96b2-febfc6313296)
+
+
 
 
 ## Challenges Faced
