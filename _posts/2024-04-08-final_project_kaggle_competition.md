@@ -14,6 +14,58 @@ The way I approached this Kaggle competiton is by understanding the steps taken 
 ## The Baseline Notebook breakdown:
 ## Embedding Images 
 Here in this section of the notebook, the embed_images function is used to compute embeddings for a list of image paths using a specified model. Here the model is a Hugging Face's Transformers loaded via AutoImageProcessor and AutoModel. 
+I've also tried using ResNet50 to generate embeddings, another custom function to deter from the baseline code. 
+
+```
+import torch
+from torchvision import models, transforms
+from PIL import Image
+from torch.nn import functional as F
+from tqdm import tqdm
+from pathlib import Path
+from typing import List
+
+def load_image(path: Path) -> torch.Tensor:
+    """Load an image from the disk and convert it to a PyTorch tensor."""
+    image = Image.open(path).convert("RGB")
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+    return transform(image).unsqueeze(0)
+
+def embed_images(
+    paths: List[Path],
+    model_name: str = 'resnet50',
+    device: torch.device = torch.device("cpu")
+) -> torch.Tensor:
+    """Computes image embeddings using a pretrained CNN model."""
+    model = getattr(models, model_name)(pretrained=True)
+    model = model.eval().to(device)
+
+    # Removing the final layer (classification layer)
+    model = torch.nn.Sequential(*(list(model.children())[:-1]))
+
+    embeddings = []
+
+    for path in tqdm(paths, desc="Computing embeddings"):
+        image = load_image(path).to(device)
+        with torch.no_grad():
+            features = model(image)
+            # Flatten the features
+            embedding = F.normalize(features.view(features.size(0), -1), p=2, dim=1)
+        embeddings.append(embedding.cpu())
+
+    return torch.cat(embeddings, dim=0)
+
+# Example usage:
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+paths = [Path("/content/drive/MyDrive/image_dataset/train/dioscuri/images/3dom_fbk_img_1512.png"), Path("/content/drive/MyDrive/image_dataset/train/dioscuri/images/3dom_fbk_img_1517.png")]
+embeddings = embed_images(paths, device=device)
+
+```
+
 ## Identifying Image Pairs 
 The function get_image_pairs is designed to find pairs of similar images based on the computed embeddings. The approach includes several steps and parameters. 
 Here the distance metric is used to calculate distances between all pairs of embeddings using 'torch.cdist'.  Here only pairs with a distance less than the specified 'similarity_threshold' are initially considered as similar. 
@@ -224,6 +276,15 @@ My attempt at this content was able to find only 8 successful reconstructions wh
 <img width="506" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9c89a6b7-514b-4e5d-95b7-47d53d7f4181">
 
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
+
+
+
+
+## Challenges Faced
+**Session Timeouts in Colab**
+Often due to memory intensive operations or improper handling of database, after running reconstruction, the entire session in Colab Restarts, or it goes into an endless wait time on Kaggle which could mean that either excess keypoints have been matched and reconstruction is a little difficult to achieve.
+**Reconstruction with COLMAP**
+Using match_exhaustive, we claim to do Reconstruction with RANSAC algorithm. The sample submission csv format is given by the competition hosts, thus following this format of steps is nececssary. 
 
 ## Conclusion 
 
