@@ -373,6 +373,24 @@ Bad matches when the green is not masked out and the keypoint extractor recogniz
 
 <img width="572" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/562ec348-bbf8-4bc5-9380-cad1f0a7e77b">
 
+
+**Other examples Keypoint Mapping Visualization (along with other easy objects)**
+
+Here in this dioscuri, images of the pillars are often flipped, this requiring manual checking to ensure some match ups are possible 
+
+<img width="553" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/2b9dc6f4-f82c-42ed-8e65-f9bb255f22bf">
+
+Trying to match keypoints on my mouse:
+
+<img width="387" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/93c0b09b-bce5-4a2e-b622-da34ccb3dec9"><img width="380" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/77e6e3fc-c5db-4f65-ac03-8cbe8691cd0d"><img width="373" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/f9dc980d-d28b-428c-85e2-7d84eb69680e"><img width="379" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/5dcce8fc-a803-4203-8afe-52fe53d89573"><img width="374" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/5b58691f-8093-4417-a7b2-e404fcab47f1">
+
+
+But it definitely looks cluttered, which shows that we need a dynamic way of reducing the number of keypoints detected per image, but for now, I reduce the number of points to detect to a 1000, from 4000. 
+
+
+
+
+
 ## Challenges with COLMAP
 
 Finally, I could not find a reasonable alternative to PYCOLMAP and the Exhaustive matching algorithm that it uses for reconstruction using the RANSAC algorithm, so I tried to have my key points fit the parameter requirements of RANSAC. 
