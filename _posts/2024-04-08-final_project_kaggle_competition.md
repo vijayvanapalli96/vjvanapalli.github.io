@@ -503,7 +503,7 @@ I will update this section as soon as I get a reasonable score, but clearly I as
 
  Here I try to see how my reconstruction methods fair against fully built libraries like KF.LightGlueMatcher and papers like Hierarchical Localization, I used the sample datasets in hand to see how the reconstruction fairs here 
 https://github.com/cvg/Hierarchical-Localization/
-
+For instance the same church that we were earlier attempting to reconstruct is visible here after using all 70 images of it.
 
 ![ezgif-2-a66429bc02](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/6d89b85f-52ce-443e-a708-2379182fa23e)
 
@@ -517,7 +517,9 @@ https://github.com/cvg/Hierarchical-Localization/
 Here we see the keypoint descriptors not ignoring trees, even finding these reconstructions in the 3D model, but surprisingly the distance between different parts of the church are clearly represented here 
 
 
-Here is another example where KF.LightGlueMatcher fails, conveying how hard of a problem it really is to consistently reconstruct scenes with the same solution pipeline 
+Here is another example where KF.LightGlueMatcher fails, conveying how hard of a problem it really is to consistently reconstruct scenes with the same solution pipeline.
+
+Similarily here we observe the Roman Architecture we try to reconstruct earlier. 
 
 <img width="377" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/097405da-d9ab-4e32-9c76-1c3e75041389">
 
