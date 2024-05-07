@@ -77,6 +77,98 @@ ALIKED is a computer vision technique for identifying key points and descriptors
 
 However this is exactly what I will be exploring later on! Using traditional methods like SIFT, ORB and AKAZE that are already available through the OpenCV python library. 
 
+
+## Detecting keypoints with SuperPoint (Custom written methods with AI help, but lots of tweaking) 
+
+'''
+import torch
+import h5py
+from pathlib import Path
+from PIL import Image
+from torchvision.transforms.functional import to_tensor, resize
+from tqdm.auto import tqdm
+import matplotlib.pyplot as plt
+import numpy as np
+def load_and_preprocess_image(path, resize_to, device):
+    """Loads an image, converts it to grayscale, resizes it, and returns a tensor along with the original size."""
+    image = Image.open(path).convert('RGB')
+    original_size = image.size  # Save the original size (width, height)
+    image = resize(image, (resize_to, resize_to))
+    image = to_tensor(image).unsqueeze(0).to(device)
+    return image, original_size
+
+
+def visualize_keypoints(image_path, keypoints, scores=None):
+    """Displays an image and overlays the detected keypoints."""
+    image = Image.open(image_path).convert('RGB')
+    plt.figure(figsize=(10, 10))
+    plt.imshow(image)
+
+    if scores is not None:
+        plt.scatter(keypoints[:, 0], keypoints[:, 1], c=scores, cmap='hot', s=10)
+        plt.colorbar(label='KeyPoint Scores')
+    else:
+        plt.scatter(keypoints[:, 0], keypoints[:, 1], color='red', s=10)
+
+    plt.axis('off')
+    plt.show()
+
+
+def detect_keypoints(
+    paths: list[Path],
+    feature_dir: Path,
+    num_features: int = 2048,
+    resize_to: int = 1024,
+    border_margin: int = 50,  # Margin size in pixels after resizing
+    device: torch.device = torch.device("cpu"),
+    visualize: bool = False
+) -> None:
+    """Detects keypoints in a list of images using the SuperPoint model, resizes them to original dimensions,
+    and stores them, ignoring keypoints close to the borders."""
+    dtype = torch.float32
+    extractor = SuperPoint(
+        max_num_keypoints=num_features,
+        detection_threshold=0.01,
+        resize=resize_to
+    ).eval().to(device)
+
+    feature_dir.mkdir(parents=True, exist_ok=True)
+
+    with h5py.File(feature_dir / "keypoints.h5", mode="w") as f_keypoints, \
+         h5py.File(feature_dir / "descriptors.h5", mode="w") as f_descriptors:
+
+        for path in tqdm(paths, desc="Computing keypoints"):
+            key = path.stem
+
+            with torch.inference_mode():
+                image, original_size = load_and_preprocess_image(path, resize_to, device)
+                data = {"image": image}
+                features = extractor(data)
+
+                keypoints = features['keypoints'][0].squeeze().detach().cpu().numpy()
+                descriptors = features['descriptors'][0].squeeze().detach().cpu().numpy()
+
+                # Filter out keypoints close to the border
+                keep = (keypoints[:, 0] >= border_margin) & \
+                       (keypoints[:, 0] <= resize_to - border_margin) & \
+                       (keypoints[:, 1] >= border_margin) & \
+                       (keypoints[:, 1] <= resize_to - border_margin)
+                keypoints = keypoints[keep]
+                descriptors = descriptors[keep]
+
+                # Rescale keypoints to original dimensions
+                scaling_factor_x, scaling_factor_y = original_size[0] / resize_to, original_size[1] / resize_to
+                keypoints[:, 0] *= scaling_factor_x
+                keypoints[:, 1] *= scaling_factor_y
+
+                f_keypoints.create_dataset(key, data=keypoints)
+                f_descriptors.create_dataset(key, data=descriptors)
+
+                if visualize:
+                    visualize_keypoints(path, keypoints)
+
+'''
+
 ## Measuring Keypoint Distances 
 Here in this function, we take a list of image paths, and index pairs for images to compare and make a directory to store features.  Here we identify and record correspondences between key points in different images for later alignment.  We do this by looping through pairs of indices to get the images that have been store to compare. 
 And then subsequently perform matching to find corresponding keypoints between two images based on their descriptors. 
@@ -290,7 +382,7 @@ Following are all the matches that are visibly discernable between the images bu
 
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
 
-## ASSURED OUTCOMES
+## Assured Outcomes to Compare to
 
 On the side to see how my reconstruction methods fair against fully built libraries like KF.LightGlueMatcher and papers like Hierarchical Localization, I used the sample datasets in hand to see how the reconstruction fairs here 
 https://github.com/cvg/Hierarchical-Localization/
