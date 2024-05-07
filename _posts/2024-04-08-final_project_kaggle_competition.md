@@ -80,6 +80,15 @@ However this is exactly what I will be exploring later on! Using traditional met
 
 ## Detecting keypoints with SuperPoint (Custom written methods with AI help, but lots of tweaking) 
 
+**SUPERPOINT**
+
+Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
+
+I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
+The following code was taken from https://github.com/magicleap/SuperPointPretrainedNetwork/blob/master/demo_superpoint.py
+
+However I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
+
 ```
 import torch
 import h5py
@@ -219,14 +228,6 @@ We can try to visualize where the key points are for the following image here
 Next for generating keypoint distances, I go with the traditional, BFMatcher with the cv2.NORM_HAMMING norm type, which is typically good for binary descriptions (like those from AKAZE). This matcher performs brute-force matching with cross-check meaning it ensures mutual matches. Debugging and replacing KF.LightGlueMatcher I noticed that it took a lot more time to calculate the distances observed between key points.
 
 
-**SUPERPOINT**
-
-Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
-
-I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
-The following code was taken from https://github.com/magicleap/SuperPointPretrainedNetwork/blob/master/demo_superpoint.py
-
-However I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
 
 
 **1.Simple Objects**
@@ -268,6 +269,9 @@ To better visualize the matches I iterate over all the images and use:
 This is a custom function that I had to implement myself whose header looks like: 
 
 ```
+
+from sklearn.neighbors import NearestNeighbors
+
 def mutual_nearest_neighbors(
     paths: list[Path],
     index_pairs: list[tuple[int, int]],
@@ -275,16 +279,50 @@ def mutual_nearest_neighbors(
     min_matches: int = 15,
     verbose: bool = True,
     device: torch.device = torch.device("cpu"),
-    visualize: bool = False
 ) -> None:
     with h5py.File(feature_dir / "keypoints.h5", "r") as f_keypoints, \
          h5py.File(feature_dir / "descriptors.h5", "r") as f_descriptors, \
          h5py.File(feature_dir / "matches.h5", "w") as f_matches:
+
+        for idx1, idx2 in tqdm(index_pairs, desc="Matching keypoints"):
+            key1, key2 = paths[idx1].stem, paths[idx2].stem
+
+            try:
+                descriptors1 = torch.from_numpy(f_descriptors[key1][...]).to(device)
+                descriptors2 = torch.from_numpy(f_descriptors[key2][...]).to(device)
+            except KeyError as e:
+                print(f"Error accessing descriptors for {key1} or {key2}: {str(e)}")
+                continue
+
+            nbrs1 = NearestNeighbors(n_neighbors=1, algorithm='auto').fit(descriptors1.cpu().numpy())
+            distances1, indices1 = nbrs1.kneighbors(descriptors2.cpu().numpy())
+
+            nbrs2 = NearestNeighbors(n_neighbors=1, algorithm='auto').fit(descriptors2.cpu().numpy())
+            distances2, indices2 = nbrs2.kneighbors(descriptors1.cpu().numpy())
+
+            mutual_matches = []
+            for i, j in enumerate(indices1.flatten()):
+                if indices2.flatten()[j] == i:
+                    mutual_matches.append((i, j))
+
+            mutual_matches = np.array(mutual_matches)
+
+            if n_matches := len(mutual_matches):
+                if verbose:
+                    print(f"{key1}-{key2}: {n_matches} matches")
+                if n_matches >= min_matches:
+                    group = f_matches.require_group(key1)
+                    group.create_dataset(key2, data=mutual_matches)
+
 ```
 
 
 <img width="579" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/1f87c8c4-c32d-49f9-9263-bcc6f5e2d790">
 
+
+**Matching Process:**
+Using the sklearn's NearestNeighbors, it computes the nearest neighbor for each descriptor in one image to all descriptors in the other image and vice versa.
+Establishes mutual matches by identifying cases where each descriptor is the nearest to the other in both directions (i.e., bidirectional nearest neighbors).
 
 
 **2.Architectures from far away**
