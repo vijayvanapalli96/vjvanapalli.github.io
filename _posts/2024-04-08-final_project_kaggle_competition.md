@@ -373,6 +373,7 @@ Bad matches when the green is not masked out and the keypoint extractor recogniz
 
 <img width="572" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/562ec348-bbf8-4bc5-9380-cad1f0a7e77b">
 
+## Challenges with COLMAP
 
 Finally, I could not find a reasonable alternative to PYCOLMAP and the Exhaustive matching algorithm that it uses for reconstruction using the RANSAC algorithm, so I tried to have my key points fit the parameter requirements of RANSAC. 
 Basically, all the key points are mapped into COLMAP, creating a database. 
