@@ -275,6 +275,13 @@ My attempt at this content was able to find only 8 successful reconstructions wh
 
 <img width="506" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/9c89a6b7-514b-4e5d-95b7-47d53d7f4181">
 
+
+Following are all the matches that are visibly discernable between the images but just counted in lists to see the similarity overview:
+```
+<img width="414" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/b889723a-a331-43fe-be14-5ad34829c52f">
+
+```
+
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
 
 
