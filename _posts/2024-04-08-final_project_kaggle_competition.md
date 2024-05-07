@@ -132,6 +132,13 @@ Next for generating keypoint distances, I go with the traditional, BFMatcher wit
 Unlike traditional patch-based neural networks, the proposed fully-convolutional model processes full-sized images in one pass, simultaneously identifying pixel-level interest points and generating associated descriptors. The authors develop a technique called Homographic Adaptation, which uses multiple scales and homographies to enhance the repeatability of detected interest points and facilitates adaptation across different domains, such as from synthetic to real images. When trained on the MS-COCO dataset using this method, the model surpasses both an initial pre-adapted deep model and conventional corner detectors like SIFT and ORB, particularly in detecting a broader set of interest points. This results in superior homography estimation performance on the HPatches dataset, achieving state-of-the-art results compared to other methods including LIFT, SIFT, and ORB.
 
 I was able to implement it all the way and even tried to visualize the keypoint matching between multiple images as follows :
+The following code was taken from https://github.com/magicleap/SuperPointPretrainedNetwork/blob/master/demo_superpoint.py
+
+However I've modified extensively to fit the purpose of the notebook, mainly using the SuperPoint Architecture to load the model directly rather than having to rely on a Python Library
+
+```
+
+```
 
 **1.Simple Objects**
 
@@ -282,6 +289,23 @@ Following are all the matches that are visibly discernable between the images bu
 
 
 I will update this section as soon as I get a reasonable score, but clearly I assume it would be lower, because of the lower matches. 
+
+## ASSURED OUTCOMES
+
+On the side to see how my reconstruction methods fair against fully built libraries like KF.LightGlueMatcher and papers like Hierarchical Localization, I used the sample datasets in hand to see how the reconstruction fairs here 
+https://github.com/cvg/Hierarchical-Localization/
+
+
+![ezgif-2-a66429bc02](https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/6d89b85f-52ce-443e-a708-2379182fa23e)
+
+
+
+
+<img width="341" alt="image" src="https://github.com/vijayvanapalli96/vjvanapalli.github.io/assets/46009628/d73e91d9-9003-4258-9b35-813741a3ceac">
+
+
+
+Here we see the keypoint descriptors not ignoring trees, even finding these reconstructions in the 3D model, but surprisingly the distance between different parts of the church are clearly represented here 
 
 
 
